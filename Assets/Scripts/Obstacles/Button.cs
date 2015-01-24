@@ -7,7 +7,6 @@ public class Button : MonoBehaviour {
 
 	private bool isActive = true;
 
-	// Use this for initialization
 	void Start () {
 		if (target == null)
 			isActive = false;
@@ -27,11 +26,4 @@ public class Button : MonoBehaviour {
 				isActive = false;
 		}
 	}
-	
-	/*
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	*/
 }

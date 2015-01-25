@@ -64,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy_Movement.cs" />
     <Compile Include="Assets\Scripts\GameController\GameController.cs" />
     <Compile Include="Assets\Scripts\GameController\Layers.cs" />
     <Compile Include="Assets\Scripts\GameController\Tags.cs" />
     <Compile Include="Assets\Scripts\Helper.cs" />
+    <Compile Include="Assets\Scripts\Items\Key.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Button.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Door_Sliding.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Door_Swinging.cs" />
@@ -82,6 +84,9 @@
     <Compile Include="Assets\Scripts\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Materials\Shaders\Custom-Ramp.shader" />
+    <None Include="Assets\Materials\Shaders\Custom-Ramp-Fresnel.shader" />
+    <None Include="Assets\Materials\Shaders\LowPrecision.shader" />
     <None Include="Assets\Plugins\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

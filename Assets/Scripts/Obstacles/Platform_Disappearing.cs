@@ -15,6 +15,7 @@ public class Platform_Disappearing : MonoBehaviour {
 	}
 
 	void OnTriggerEnter ( Collider col ) {
+		// print( "Tag: "+col.gameObject.tag+"   Name: "+col.gameObject.name );
 		if ( col.gameObject.tag == "Player" ) {
 			if ( state == 0 ) {
 				ChangeState( 1 );

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\GameController\Layers.cs" />
     <Compile Include="Assets\Scripts\GameController\Tags.cs" />
     <Compile Include="Assets\Scripts\Helper.cs" />
+    <Compile Include="Assets\Scripts\Items\Decahedron.cs" />
     <Compile Include="Assets\Scripts\Items\Key.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Button.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Door_Sliding.cs" />

@@ -23,12 +23,12 @@ public class PlayerAnimator : MonoBehaviour
 	public bool FlipLeftEnabled = false;
 	
 	private int? lastDir;
-	//private Animator animator;
+	private Animator animator;
 	private float threshold;
 	
 	void Awake()
 	{
-		//animator = this.GetComponent<Animator>();
+		animator = this.GetComponent<Animator>();
 		//threshold = Mathf.Sin(22.5f * Mathf.Deg2Rad); //45 deg = 4 sprites, 22.5 deg = 8 sprites
 	}
 	
@@ -52,7 +52,11 @@ public class PlayerAnimator : MonoBehaviour
 				transform.localScale = new Vector3(dirVector.x, 1, 1);
 		}
 		//else if (lastDir > 0) animator.SetBool("Moving", false);
-		
+
+        animator.SetBool("Jump", Player.Motor.jump);
+
+        animator.SetFloat("Speed", Player.Motor.speed);
+
 		//animator.SetFloat("VerticalVelocity", GameController.PlayerMotor.VerticalVelocity);
 		//animator.SetBool("isGrounded", TP_Controller.CharacterController.isGrounded);
 		

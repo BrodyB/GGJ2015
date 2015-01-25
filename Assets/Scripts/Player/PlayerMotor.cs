@@ -40,7 +40,9 @@ public class PlayerMotor : MonoBehaviour {
 	private Vector3 slideDirection;
 	private Vector3 inputVector;
 	private Quaternion camRotation;
-		
+
+    public float speed { get; set; }
+
 	//private bool isGrounded;
 	private float jumpSpeed;
 	private float jumpCutSpeed;
@@ -53,6 +55,7 @@ public class PlayerMotor : MonoBehaviour {
 	public Direction MoveDirection { get; set; }
 
     public bool isGrounded { get; set; }
+    public bool jump { get; set; }
 	
 	public enum Direction
 	{
@@ -161,12 +164,17 @@ public class PlayerMotor : MonoBehaviour {
 
 		// Move the Character in World Space
 		isGrounded = (controller.Move(MoveVector * deltaTime) & CollisionFlags.Below) != 0;
+
+        if (isGrounded) jump = false;
 		
 		ApplyGravity(gravity);
 		
 		VerticalVelocity = MoveVector.y;
 		
 		VelocityXZ = new Vector3(controller.velocity.x, 0, controller.velocity.z);
+
+        speed = Vector3.Magnitude(VelocityXZ);
+        //jump = 
 				
 		Debug.DrawLine(transform.position, transform.position + MoveVector * 0.1f, Color.red, 0, false);
 	}
@@ -245,6 +253,7 @@ public class PlayerMotor : MonoBehaviour {
 	{
 		if (isGrounded)
 		{
+            jump = true;
 			VerticalVelocity = jumpSpeed;
 		}
 	}

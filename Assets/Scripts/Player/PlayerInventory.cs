@@ -6,6 +6,7 @@ using System.Collections;
 public class PlayerInventory : MonoBehaviour {
 
     public int securityLevel = 0;
+    public List<int> keys = new List<int>();    // Holds keys to use to open doors
     public GameObject equippedItem;
 
     public List<GameObject> items = new List<GameObject>();

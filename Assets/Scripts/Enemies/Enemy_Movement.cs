@@ -79,7 +79,7 @@ public class Enemy_Movement : MonoBehaviour {
 			if ( Physics.Linecast(myTrans.position, playerPos, out hitInfo) ) {
 				if ( hitInfo.collider.gameObject.tag == "Player" ) {
 					float angle = Vector3.Angle(playerPos-myTrans.position,myTrans.forward);
-					print("Angle: "+angle);
+					// print("Angle: "+angle);
 					if ( angle <= 65 )
 						ChangeState( States.Alert );
 				}

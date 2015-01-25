@@ -1,37 +1,13 @@
 fileFormatVersion: 2
-guid: 1ab5ef5eb856c0d4faa438caf7bcab1b
+guid: f10819fa1e0767b41b228c621e432299
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Stage
-    100004: Terrain
-    100006: Tower
-    100008: Fountain
     400000: //RootNode
-    400002: Stage
-    400004: Terrain
-    400006: Tower
-    400008: Fountain
     2300000: //RootNode
-    2300002: Stage
-    2300004: Terrain
-    2300006: Tower
-    2300008: Fountain
     3300000: //RootNode
-    3300002: Stage
-    3300004: Terrain
-    3300006: Tower
-    3300008: Fountain
-    4300000: Terrain
-    4300002: Stage
-    4300004: Tower
-    4300006: Fountain
-    6400000: //RootNode
-    6400002: Stage
-    6400004: Terrain
-    6400006: Tower
-    6400008: Fountain
+    4300000: Decahedron
     7400000: modo_Anim
     9500000: //RootNode
   materials:
@@ -55,7 +31,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -67,9 +43,9 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 20
     splitTangentsAcrossUV: 1
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0

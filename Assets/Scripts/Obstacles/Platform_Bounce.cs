@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Platform_Bounce : MonoBehaviour {
+public class Platform_Bounce : Platform
+{
 	public float bounceStrength = 4f;
 
-	void OnTriggerEnter ( Collider col ) {
-		if ( col.gameObject.tag == "Player" ) {
-			Player.Motor.VerticalVelocity = bounceStrength;
-		}
-	}
+    public override void OnUpdate()
+    {
+        if (isPlayerOnPlatform) Player.Motor.VerticalVelocity = bounceStrength;
+    }
 }

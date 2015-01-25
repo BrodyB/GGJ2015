@@ -14,12 +14,10 @@ public class Platform_Disappearing : MonoBehaviour
     private bool isPlayerAbove = false;
 
     private Collider phyicalCollider;
-    private Collider triggerCollider;
 
     void Awake()
     {
         phyicalCollider = GetComponents<BoxCollider>()[0];
-        triggerCollider = GetComponents<BoxCollider>()[1];
         startColor = renderer.material.color;
     }
 

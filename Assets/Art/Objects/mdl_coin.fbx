@@ -12,16 +12,16 @@ FBXHeaderExtension:  {
         Month: 1
         Day: 24
         Hour: 16
-        Minute: 22
-        Second: 47
-        Millisecond: 894
+        Minute: 36
+        Second: 22
+        Millisecond: 739
     }
     Creator: "FBX SDK/FBX Plugins version 2010.2"
     OtherFlags:  {
         FlagPLE: 0
     }
 }
-CreationTime: "2015-01-24 16:22:47:894"
+CreationTime: "2015-01-24 16:36:22:739"
 Creator: "FBX SDK/FBX Plugins build 20090731"
 
 ; Document Description
@@ -438,7 +438,7 @@ Objects:  {
             Matrix: 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1
         }
     }
-    Material: "Material::Default", "" {
+    Material: "Material::Coin", "" {
         Version: 102
         ShadingModel: "phong"
         MultiLayer: 0
@@ -494,7 +494,7 @@ Objects:  {
 
 Connections:  {
     Connect: "OO", "Model::mdlCoin", "Model::Scene"
-    Connect: "OO", "Material::Default", "Model::mdlCoin"
+    Connect: "OO", "Material::Coin", "Model::mdlCoin"
 }
 ;Takes and animation section
 ;----------------------------------------------------

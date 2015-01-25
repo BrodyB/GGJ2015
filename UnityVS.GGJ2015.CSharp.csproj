@@ -65,11 +65,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\GameController\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameController\Layers.cs" />
     <Compile Include="Assets\Scripts\GameController\Tags.cs" />
     <Compile Include="Assets\Scripts\Helper.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Button.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Door_Sliding.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Door_Swinging.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Platform_Bounce.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\Platform_Disappearing.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />

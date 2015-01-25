@@ -41,7 +41,7 @@ public class PlayerMotor : MonoBehaviour {
 	private Vector3 inputVector;
 	private Quaternion camRotation;
 		
-	private bool isGrounded;
+	//private bool isGrounded;
 	private float jumpSpeed;
 	private float jumpCutSpeed;
 	
@@ -51,6 +51,8 @@ public class PlayerMotor : MonoBehaviour {
 	public Vector3 VelocityXZ { get; set; }
 	
 	public Direction MoveDirection { get; set; }
+
+    public bool isGrounded { get; set; }
 	
 	public enum Direction
 	{
@@ -87,7 +89,6 @@ public class PlayerMotor : MonoBehaviour {
 	{
 		controller = GetComponent<CharacterController>();
 		isGrounded = controller.isGrounded;
-        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("No Collision"), LayerMask.NameToLayer("Player"));
 	}
 	
 	void SetRotation(OrientTo mode)
@@ -157,7 +158,7 @@ public class PlayerMotor : MonoBehaviour {
 		
 		MoveVector = new Vector3(Mathf.Lerp(controller.velocity.x, goalVelocity.x, acceleration * deltaTime), VerticalVelocity,
 		                         Mathf.Lerp(controller.velocity.z, goalVelocity.z, acceleration * deltaTime));
-				
+
 		// Move the Character in World Space
 		isGrounded = (controller.Move(MoveVector * deltaTime) & CollisionFlags.Below) != 0;
 		

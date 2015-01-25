@@ -106,22 +106,22 @@ public static class Helper
 		//		Debug.DrawLine(clipPlanePoints.LowerRight, clipPlanePoints.LowerLeft);
 		//		Debug.DrawLine(clipPlanePoints.LowerLeft, clipPlanePoints.UpperLeft);
 		
-		if(Physics.Linecast(from, clipPlanePoints.UpperLeft, out hitInfo) && hitInfo.collider.tag != "Player")
+		if (Physics.Linecast(from, clipPlanePoints.UpperLeft, out hitInfo, ~Layers.dynamic) && hitInfo.collider.tag != "Player")
 			nearestDistance = hitInfo.distance;
-		
-		if(Physics.Linecast(from, clipPlanePoints.UpperRight, out hitInfo) && hitInfo.collider.tag != "Player")
+
+        if (Physics.Linecast(from, clipPlanePoints.UpperRight, out hitInfo, ~Layers.dynamic) && hitInfo.collider.tag != "Player")
 			if (hitInfo.distance < nearestDistance || nearestDistance == -1)
 				nearestDistance = hitInfo.distance;
-		
-		if(Physics.Linecast(from, clipPlanePoints.LowerRight, out hitInfo) && hitInfo.collider.tag != "Player")
+
+        if (Physics.Linecast(from, clipPlanePoints.LowerRight, out hitInfo, ~Layers.dynamic) && hitInfo.collider.tag != "Player")
 			if (hitInfo.distance < nearestDistance || nearestDistance == -1)
 				nearestDistance = hitInfo.distance;
-		
-		if(Physics.Linecast(from, clipPlanePoints.LowerLeft, out hitInfo) && hitInfo.collider.tag != "Player")
+
+        if (Physics.Linecast(from, clipPlanePoints.LowerLeft, out hitInfo, ~Layers.dynamic) && hitInfo.collider.tag != "Player")
 			if (hitInfo.distance < nearestDistance || nearestDistance == -1)
 				nearestDistance = hitInfo.distance;
-		
-		if(Physics.Linecast(from, to + cam.transform.forward * -cam.nearClipPlane, out hitInfo) && hitInfo.collider.tag != "Player")
+
+        if (Physics.Linecast(from, to + cam.transform.forward * -cam.nearClipPlane, out hitInfo, ~Layers.dynamic) && hitInfo.collider.tag != "Player")
 			if (hitInfo.distance < nearestDistance || nearestDistance == -1)
 				nearestDistance = hitInfo.distance;
 		

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Platform_Disappearing : MonoBehaviour {
+public class Platform_Disappearing : MonoBehaviour
+{
 	public float activeTime = 2f;
 	public float respawnTime = 3f;
 	public float fadeTime = 0.7f;
@@ -10,31 +11,40 @@ public class Platform_Disappearing : MonoBehaviour {
 	private float timer = 0;
 	private Color startColor;
 
-	void Start () {
-		startColor = transform.parent.renderer.material.color;
+    private bool isPlayerAbove = false;
+
+    private Collider phyicalCollider;
+    private Collider triggerCollider;
+
+    void Awake()
+    {
+        phyicalCollider = GetComponents<BoxCollider>()[0];
+        triggerCollider = GetComponents<BoxCollider>()[1];
+        startColor = renderer.material.color;
+    }
+
+    void OnTriggerEnter ( Collider col )
+    {
+        if (col.gameObject.tag == "Player") isPlayerAbove = true;
 	}
 
-	void OnTriggerEnter ( Collider col ) {
-		// print( "Tag: "+col.gameObject.tag+"   Name: "+col.gameObject.name );
-		if ( col.gameObject.tag == "Player" ) {
-			if ( state == 0 ) {
-				ChangeState( 1 );
-			}
-		}
-	}
+    void OnTriggerExit( Collider col )
+    {
+        if (col.gameObject.tag == "Player") isPlayerAbove = false;
+    }
 
-	void ChangeState ( int newState ) {
-		switch ( newState ) {
+	void ChangeState ( int newState )
+    {
+		switch ( newState )
+        {
 			case 0: // Active
-				transform.parent.GetComponent<BoxCollider>().enabled = true;
-				transform.parent.renderer.material.color = startColor;
+                phyicalCollider.enabled = true;
+				renderer.material.color = startColor;
 			break;
-
 
 			case 1: // Touched
 				timer = 0;
 			break;
-
 
 			case 2: // Fading
 				Hashtable fader = new Hashtable();
@@ -43,12 +53,11 @@ public class Platform_Disappearing : MonoBehaviour {
 				fader.Add( "easetype", iTween.EaseType.linear );
 				fader.Add( "oncompletetarget", gameObject );
 				fader.Add( "oncomplete", "TurnOff" );
-				iTween.ColorTo( transform.parent.gameObject, fader );
+				iTween.ColorTo( gameObject, fader );
 			break;
 
-
-			case 3: // Disappeared
-				transform.parent.GetComponent<BoxCollider>().enabled = false;
+            case 3: // Disappeared
+                phyicalCollider.enabled = false;
 			break;
 		}
 
@@ -57,17 +66,22 @@ public class Platform_Disappearing : MonoBehaviour {
 	}
 
 	void Update () {
+
 		timer += Time.deltaTime;
-		if ( state == 1 ) {
-			if ( timer > activeTime-fadeTime ) {
-				ChangeState( 2 );
-			}
+
+        if ( state == 0 )
+        {
+            if (isPlayerAbove && Player.Motor.isGrounded) ChangeState(1);
+        }
+		else if ( state == 1 )
+        {
+			if ( timer > activeTime-fadeTime ) ChangeState( 2 );
 		}
-		else if ( state == 3 ) {
-			if ( timer > respawnTime ) {
-				ChangeState( 0 );
-			}
+		else if ( state == 3 )
+        {
+			if ( timer > respawnTime ) ChangeState( 0 );
 		}
+
 	}
 
 	public void TurnOff () {

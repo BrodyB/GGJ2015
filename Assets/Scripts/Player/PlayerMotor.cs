@@ -41,7 +41,7 @@ public class PlayerMotor : MonoBehaviour {
 	private Vector3 inputVector;
 	private Quaternion camRotation;
 		
-	private bool isGrounded;
+	//private bool isGrounded;
 	private float jumpSpeed;
 	private float jumpCutSpeed;
 	
@@ -51,6 +51,8 @@ public class PlayerMotor : MonoBehaviour {
 	public Vector3 VelocityXZ { get; set; }
 	
 	public Direction MoveDirection { get; set; }
+
+    public bool isGrounded { get; set; }
 	
 	public enum Direction
 	{

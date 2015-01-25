@@ -6,7 +6,7 @@ public class Platform_Bounce : MonoBehaviour {
 
 	void OnTriggerEnter ( Collider col ) {
 		if ( col.gameObject.tag == "Player" ) {
-			col.transform.parent.GetComponent<PlayerMotor>().VerticalVelocity = bounceStrength;
+			Player.Motor.VerticalVelocity = bounceStrength;
 		}
 	}
 }

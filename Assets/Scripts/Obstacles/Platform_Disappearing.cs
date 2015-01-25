@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Platform_Disappearing : MonoBehaviour
+public class Platform_Disappearing : Platform
 {
 	public float activeTime = 2f;
 	public float respawnTime = 3f;
@@ -11,24 +11,12 @@ public class Platform_Disappearing : MonoBehaviour
 	private float timer = 0;
 	private Color startColor;
 
-    private bool isPlayerAbove = false;
-
     private Collider phyicalCollider;
 
     void Awake()
     {
         phyicalCollider = GetComponents<BoxCollider>()[0];
         startColor = renderer.material.color;
-    }
-
-    void OnTriggerEnter ( Collider col )
-    {
-        if (col.gameObject.tag == "Player") isPlayerAbove = true;
-	}
-
-    void OnTriggerExit( Collider col )
-    {
-        if (col.gameObject.tag == "Player") isPlayerAbove = false;
     }
 
 	void ChangeState ( int newState )
@@ -63,13 +51,13 @@ public class Platform_Disappearing : MonoBehaviour
 		state = newState;
 	}
 
-	void Update () {
-
-		timer += Time.deltaTime;
+	public override void OnUpdate()
+    {
+        timer += Time.deltaTime;
 
         if ( state == 0 )
         {
-            if (isPlayerAbove && Player.Motor.isGrounded) ChangeState(1);
+            if (isPlayerOnPlatform) ChangeState(1);
         }
 		else if ( state == 1 )
         {
@@ -79,7 +67,6 @@ public class Platform_Disappearing : MonoBehaviour
         {
 			if ( timer > respawnTime ) ChangeState( 0 );
 		}
-
 	}
 
 	public void TurnOff () {
